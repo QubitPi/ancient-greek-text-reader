@@ -3,16 +3,6 @@ import AudioControls from "./AudioControls";
 import Backdrop from "./Backdrop";
 
 const AudioPlayer = ({ tracks }) => {
-  var resp = audio.play();
-
-  if (resp!== undefined) {
-    resp.then(_ => {
-      // autoplay starts!
-    }).catch(error => {
-      //show error
-    });
-  }
-
   // State
   const [trackIndex, setTrackIndex] = useState(0);
   const [trackProgress, setTrackProgress] = useState(0);
