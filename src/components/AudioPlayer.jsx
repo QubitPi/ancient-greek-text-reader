@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import AudioControls from "./AudioControls";
-import Backdrop from "./Backdrop";
+// import Backdrop from "./Backdrop";
 
 const AudioPlayer = ({ tracks }) => {
   // State
