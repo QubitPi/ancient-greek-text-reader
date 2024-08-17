@@ -1,5 +1,5 @@
-import imgSrc from "./assets/artwork.jpg";
-import oeconomicus from "./assets/Οἰκονμικός.mp3";
+import imgSrc from "../assets/artwork.jpg";
+import oeconomicus from "../assets/Οἰκονμικός.mp3";
 
 export default [
   {

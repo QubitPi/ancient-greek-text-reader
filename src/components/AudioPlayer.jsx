@@ -1,13 +1,18 @@
 import React, { useState, useEffect, useRef } from "react";
 import AudioControls from "./AudioControls";
 import Backdrop from "./Backdrop";
-import "./styles.css";
 
-/*
- * Read the blog post here:
- * https://letsbuildui.dev/articles/building-an-audio-player-with-react-hooks
- */
 const AudioPlayer = ({ tracks }) => {
+  var resp = audio.play();
+
+  if (resp!== undefined) {
+    resp.then(_ => {
+      // autoplay starts!
+    }).catch(error => {
+      //show error
+    });
+  }
+
   // State
   const [trackIndex, setTrackIndex] = useState(0);
   const [trackProgress, setTrackProgress] = useState(0);
@@ -138,11 +143,11 @@ const AudioPlayer = ({ tracks }) => {
           style={{ background: trackStyling }}
         />
       </div>
-      <Backdrop
-        trackIndex={trackIndex}
-        activeColor={color}
-        isPlaying={isPlaying}
-      />
+      {/*<Backdrop*/}
+      {/*  trackIndex={trackIndex}*/}
+      {/*  activeColor={color}*/}
+      {/*  isPlaying={isPlaying}*/}
+      {/*/>*/}
     </div>
   );
 };
