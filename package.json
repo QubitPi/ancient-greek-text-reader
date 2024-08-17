@@ -1,5 +1,6 @@
 {
   "name": "ancient-greek-reader",
+  "homepage": "https://qubitpi.github.io/ancient-greek-reader",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
