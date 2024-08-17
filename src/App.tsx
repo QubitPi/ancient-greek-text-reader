@@ -42,7 +42,7 @@ function App() {
 
           <p>
             The example audio on the right is the AI-generated reading of the book,
-            <a href="https://archive.org/details/XenophonMemorabiliaOeconomicusSymosiumloebMarchant_201903"><font color="blue">Oeconomicus</font></a>,
+            <a href="https://archive.org/details/XenophonMemorabiliaOeconomicusSymosiumloebMarchant_201903">Oeconomicus</a>,
             written by the famous ancient Greek Philosopher and Historian Xenophon
           </p>
         </div>
