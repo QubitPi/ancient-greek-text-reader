@@ -25,7 +25,9 @@ jobs:
         with:
           node-version: ${{ env.node_version }}
       - name: Install dependencies
-        run: yarn
+        run: |
+          npm install -g yarn@1.22.19
+          yarn
       - name: Production build
         run: yarn build
       - name: Deploy to GitHub Pages
