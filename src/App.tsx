@@ -1,10 +1,19 @@
 import React from 'react';
 import logo from './logo.svg';
+import pdf from "./assets/pdf.svg"
+import audio from "./assets/audio.svg"
 import './App.css';
 import AudioPlayer from "./components/AudioPlayer";
+import Xenophon from "./assets/Xenophon.png"
 import tracks from "./components/tracks";
 
+// @ts-ignore
+import Οἰκονομικός1PDF from "./assets/Οἰκονομικός-segment-1.pdf"
+// @ts-ignore
+import Οἰκονομικός1MP3 from "./assets/Οἰκονομικός-segment-1.mp3"
+
 function App() {
+
   return (
     <div>
       <div className="circle"></div>
@@ -54,6 +63,24 @@ function App() {
               οἰκονομία ἐπιστήμης τινὸς ὄνομά ἐστιν, ὥσπερ ἡ ἰατρικὴ καὶ καλκευτικὴ καὶ τεκτονική;
             </p>
           </div>
+        </div>
+      </div>
+      <div className="list-box">
+        <div className="segment-logo">
+          <img src={Xenophon} style={{borderRadius: '20%'}}/>
+        </div>
+
+        <p>
+          Xenophon's Oeconomicus (Economics) <br></br> Segment 1
+        </p>
+
+        <div className="pdf-file">
+          <a href={Οἰκονομικός1PDF} download="Οἰκονομικός-segment-1"><img src={pdf} alt="Download icon"/></a>
+        </div>
+
+        <div className="audio-file">
+          <a href={Οἰκονομικός1MP3} download="Οἰκονομικός-segment-1"><img src={audio} alt="Download icon"/></a>
+
         </div>
       </div>
     </div>
