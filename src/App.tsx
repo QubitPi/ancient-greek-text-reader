@@ -1,18 +1,51 @@
-import React from 'react';
-import logo from './logo.svg';
-import pdf from "./assets/pdf.svg"
-import audio from "./assets/audio.svg"
-import './App.css';
-import AudioPlayer from "./components/AudioPlayer";
-import Xenophon from "./assets/Xenophon.png"
-import tracks from "./components/tracks";
+import React from "react";
+import logo from "./logo.svg";
+import "./App.css";
 
-// @ts-ignore
-import Οἰκονομικός1PDF from "./assets/Οἰκονομικός-segment-1.pdf"
-// @ts-ignore
-import Οἰκονομικός1MP3 from "./assets/Οἰκονομικός-segment-1.mp3"
+import { BasicNode, BasicRelationship, GraphVisualizer } from "neo4j-devtools-arc";
 
 function App() {
+
+  const nodes: BasicNode[] = [
+    {
+      id: "1",
+      elementId: "1",
+      labels: ["Person"],
+      properties: {
+        name: "Jack",
+        age: "20"
+      },
+      propertyTypes: {
+        name: "string",
+        age: "number"
+      }
+    },
+    {
+      id: "2",
+      elementId: "2",
+      labels: ["React"],
+      properties: {
+        name: "ReactJS"
+      },
+      propertyTypes: {
+        name: "string"
+      }
+    }
+  ];
+
+  const links: BasicRelationship[] = [
+    {
+      id: "3",
+      elementId: "3",
+      startNodeId: "1",
+      endNodeId: "2",
+      type: "likes",
+      properties: {},
+      propertyTypes: {}
+    }
+  ];
+
+  const isFullscreen = true;
 
   return (
     <div>
@@ -24,63 +57,23 @@ function App() {
       <div className="wrapper">
         <div className="header">
           <div className="logo">
-            <img src={logo} alt="QubitPi Logo"/>
-          </div>
-          <ul>
-            <a href="https://github.com/Qubitpi">
-              <li>QubitPi</li>
-            </a>
-            <a href="https://github.com/QubitPi/ancient-greek-reader">
-              <li className="github_btn">GitHub</li>
-            </a>
-          </ul>
-        </div>
-        <div className="section1">
-          <h2>Ancient Greek Pronunciation Reconstruction with AI</h2>
-          <span>QubitPi</span>
-          <p>
-            Ancient Greek is a phonetically-lost language, because no one knows the correct pronunciation of such an
-            ancient language. This imposes big challenge for language learners.
-          </p>
-
-          <p>
-            This project offers a unique solution
-            using Natural Language Processing AI that produces fairly accurate readings of famous books written in Ancient
-            Greek.
-          </p>
-
-          <p>
-            The example audio on the right is the AI-generated reading of the book, Oeconomicus, written by the famous
-            ancient Greek Philosopher and Historian Xenophon
-          </p>
-        </div>
-        <div className="section2">
-          <AudioPlayer tracks={tracks}/>
-          <div className="text-box" style={{fontFamily: 'Porson'}}>
-            <p>
-              Ἤκουσα δὲ ποτε αὐτοῦ καὶ περὶ οἰκονομίας τοιάδε διαλεγομένου. Εἰπέ μοι, ἔφῃ, ὦ Κριτόβουλε, ἄρά γε ἡ
-              οἰκονομία ἐπιστήμης τινὸς ὄνομά ἐστιν, ὥσπερ ἡ ἰατρικὴ καὶ καλκευτικὴ καὶ τεκτονική;
-            </p>
+            <img src={logo} alt="QubitPi Logo" />
           </div>
         </div>
-      </div>
-      <div className="list-box">
-        <div className="segment-logo">
-          <img src={Xenophon} style={{borderRadius: '20%'}}/>
-        </div>
-
-        <p>
-          Xenophon's Oeconomicus (Economics) <br></br> Segment 1
-        </p>
-
-        <div className="pdf-file">
-          <a href={Οἰκονομικός1PDF} download="Οἰκονομικός-segment-1"><img src={pdf} alt="Download icon"/></a>
-        </div>
-
-        <div className="audio-file">
-          <a href={Οἰκονομικός1MP3} download="Οἰκονομικός-segment-1"><img src={audio} alt="Download icon"/></a>
-
-        </div>
+        <GraphVisualizer
+          maxNeighbours={100}
+          hasTruncatedFields={false}
+          nodes={nodes}
+          autocompleteRelationships={false}
+          relationships={links}
+          isFullscreen={isFullscreen}
+          nodeLimitHit={false}
+          getAutoCompleteCallback={undefined}
+          wheelZoomRequiresModKey={!isFullscreen}
+          wheelZoomInfoMessageEnabled={false}
+          useGeneratedDefaultColors={false}
+          initialZoomToFit={true}
+        />
       </div>
     </div>
   );

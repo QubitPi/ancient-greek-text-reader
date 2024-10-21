@@ -132,14 +132,6 @@ a {
   width: 600px;
 }
 
-
-
-
-@font-face {
-  font-family: Porson;
-  src: url(Porson.ttf);
-}
-
 button {
   background: none;
   border: none;
